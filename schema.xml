@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="all_inventory" idMethod="native" phpName="AllInventory">
+    <column name="account_manager" phpName="AccountManager" type="VARCHAR" size="32" required="true"/>
+    <column name="tag_number" phpName="TagNumber" type="INTEGER" size="16" primaryKey="true" required="true"/>
+    <column name="date" phpName="Date" type="DATE" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="64" required="true"/>
+    <column name="building_num" phpName="BuildingNum" type="INTEGER" required="true"/>
+    <column name="building_name" phpName="BuildingName" type="VARCHAR" size="32" required="true"/>
+    <column name="room_num" phpName="RoomNum" type="VARCHAR" size="8" required="true"/>
+    <column name="asset_key" phpName="AssetKey" type="INTEGER" required="true"/>
+    <column name="asset_description" phpName="AssetDescription" type="VARCHAR" size="64" required="true"/>
+    <column name="cost" phpName="Cost" type="INTEGER" required="true"/>
+    <column name="serial_num" phpName="SerialNum" type="VARCHAR" size="8" required="true"/>
+    <column name="invoice" phpName="Invoice" type="VARCHAR" size="8" required="true"/>
+    <column name="po_num" phpName="PoNum" type="VARCHAR" size="8" required="true"/>
+    <column name="status" phpName="Status" type="VARCHAR" size="16" required="true"/>
+    <column name="comment" phpName="Comment" type="VARCHAR" size="64" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="asset_user" idMethod="native" phpName="AssetUser">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="tag_num" phpName="TagNum" type="INTEGER" required="true"/>
+    <column name="user_id" phpName="UserId" type="INTEGER" required="true"/>
+    <column name="start_date" phpName="StartDate" type="DATE" required="true"/>
+    <column name="end_date" phpName="EndDate" type="DATE"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="missing" idMethod="native" phpName="Missing">
+    <column name="tag_number" phpName="TagNumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="64" required="true"/>
+    <column name="comment" phpName="Comment" type="VARCHAR" size="64" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="surplus" idMethod="native" phpName="Surplus">
+    <column name="tag_number" phpName="TagNumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="comment" phpName="Comment" type="VARCHAR" size="64" required="true"/>
+    <column name="surplus_by" phpName="SurplusBy" type="VARCHAR" size="32" required="true"/>
+    <column name="date" phpName="Date" type="DATE" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="transfer" idMethod="native" phpName="Transfer">
+    <column name="tag_number" phpName="TagNumber" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="date_transfered" phpName="DateTransfered" type="DATE" required="true"/>
+    <column name="transfer_from" phpName="TransferFrom" type="VARCHAR" size="32" required="true"/>
+    <column name="transfer_to" phpName="TransferTo" type="VARCHAR" size="32" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="updates" idMethod="native" phpName="Updates">
+    <column name="Name" phpName="Name" type="VARCHAR" size="32" required="true"/>
+    <column name="tag_num" phpName="TagNum" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Comment" phpName="Comment" type="VARCHAR" size="64" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="user" idMethod="native" phpName="User">
+    <column name="user_id" phpName="UserId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="64" required="true"/>
+    <column name="password" phpName="Password" type="VARCHAR" size="15" required="true"/>
+    <column name="role" phpName="Role" type="INTEGER" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
